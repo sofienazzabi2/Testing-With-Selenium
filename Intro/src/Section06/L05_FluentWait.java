@@ -22,12 +22,10 @@ public class L05_FluentWait {
 		// setting an implicit wait of 10 seconds
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-		driver.get("https://www.automationtesting.co.uk/loader.html");
+		driver.get("https://www.automationtesting.co.uk/loadertwo.html");
 		
-		WebDriverWait wait = new WebDriverWait(driver,10);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button#loaderBtn")));
 		
-		driver.findElement(By.cssSelector("button#loaderBtn")).click();
+		
 
 	}
 
