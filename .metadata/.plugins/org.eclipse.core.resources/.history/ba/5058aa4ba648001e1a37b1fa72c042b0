@@ -1,0 +1,22 @@
+package Section11;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeSuite;
+
+public class L08_Annotation_Pt1 {
+	
+	@BeforeSuite{
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\sofien\\Desktop\\Resources\\driver_v1\\chromedriver.exe");
+	    WebDriver driver = new ChromeDriver() ;
+	    driver.manage().window().maximize();
+	}
+	
+	
+	
+	
+	
+    driver.get("https://automationtesting.co.uk/");
+
+}

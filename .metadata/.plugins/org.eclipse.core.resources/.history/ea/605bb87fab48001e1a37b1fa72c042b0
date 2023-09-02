@@ -1,0 +1,57 @@
+package Section11;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+
+public class L09_Annotation_Pt2 {
+	
+	WebDriver driver ;
+	
+	
+	@BeforeSuite
+	public void setup() throws InterruptedException {
+		 System.setProperty("webdriver.chrome.driver","C:\\Users\\sofien\\Desktop\\Resources\\driver_v1\\chromedriver.exe");
+	     driver = new ChromeDriver() ;
+	     driver.manage().window().maximize();
+	     Thread.sleep(2000);
+	}
+	
+	@BeforeMethod
+	public void signin() {
+		driver.get("http://teststore.automationtesting.co.uk/");
+		driver.findElement(By.cssSelector("[title] .hidden-sm-down")).click();
+		driver.findElement(By.cssSelector("section input[name='email']")).sendKeys("hahahahahahhaha@gmail.com");
+		driver.findElement(By.cssSelector("input[name='password']")).sendKeys("2t5GtYGJk4TNAdL");
+		driver.findElement(By.cssSelector("button#submit-login")).click();
+	}
+	
+	@Test
+	public void test() throws InterruptedException {
+		 driver.findElement(By.linkText("CLOTHES")).click();
+		 Thread.sleep(2000);
+	}
+	
+	@AfterMethod
+	public void signout() {
+		driver.findElement(By.cssSelector(".hidden-sm-down.logout")).click();
+	}
+	
+	@AfterSuite
+	public void end() {
+		driver.close();
+		driver.quit();
+		
+		}
+	
+	
+	
+	
+	
+ 
+
+}
